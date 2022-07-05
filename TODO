@@ -2,7 +2,10 @@ TODO
 ====
 1. doc
 2. Test for bad object in navigation_items
-3.
+3. Tests for process()
+4. Add CSS
+5. Tests for process_css().
+6.
 
 Applied
 =======
