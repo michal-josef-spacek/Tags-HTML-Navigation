@@ -67,6 +67,7 @@ sub _process {
 				['a', 'class', $self->{'css_navigation'}.'-active'],
 			) : (),
 			['d', $navigation_item->title],
+			['e', 'a'],
 			['e', 'li'],
 		);
 	}
