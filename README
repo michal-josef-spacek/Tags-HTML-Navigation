@@ -1,0 +1,116 @@
+NAME
+    Tags::HTML::Navigation - Tags helper for navigator.
+
+SYNOPSIS
+     use Tags::HTML::Navigation;
+
+     my $obj = Tags::HTML::Navigation->new(%params);
+     $obj->process;
+     $obj->process_css;
+
+METHODS
+  "new"
+     my $obj = Tags::HTML::Navigation->new(%params);
+
+    Constructor.
+
+    *       "css"
+
+            'CSS::Struct::Output' object for process_css processing.
+
+            Default value is undef.
+
+    *       "css_navigator"
+
+            Main CSS class of this block.
+
+            Default value is 'navigator'.
+
+    *       "tags"
+
+            'Tags::Output' object.
+
+            Default value is undef.
+
+  "process"
+     $obj->process;
+
+    Process Tags structure for output with navigator.
+
+    Returns undef.
+
+  "process_css"
+     $obj->process_css;
+
+    Process CSS::Struct structure for output.
+
+    Returns undef.
+
+ERRORS
+     new():
+             Navigation item must be a 'Data::HTML::Navigation' instance.
+             Parameter 'navigation_items' is required.
+             From Class::Utils::set_params():
+                     Unknown parameter '%s'.
+             From Tags::HTML::new():
+                     Parameter 'tags' must be a 'Tags::Output::*' class.
+
+EXAMPLE
+     use strict;
+     use warnings;
+
+     use CSS::Struct::Output::Indent;
+     use Data::HTML::Navigation;
+     use Tags::HTML::Navigation;
+     use Tags::Output::Indent;
+
+     # Object.
+     my $css = CSS::Struct::Output::Indent->new;
+     my $tags = Tags::Output::Indent->new;
+     my $obj = Tags::HTML::Navigation->new(
+             'css' => $css,
+             'navigation_items' => [
+                     Data::HTML::Navigation->new(
+                             'active' => 1,
+                             'title' => 'Main page',
+                             'url' => 'https://example.com/main',
+                     ),
+                     Data::HTML::Navigation->new(
+                             'title' => 'Help',
+                             'url' => 'https://example.com/help',
+                     ),
+             ],
+             'tags' => $tags,
+     );
+
+     # Process pager.
+     $obj->process;
+     $obj->process_css;
+
+     # Print out.
+     print $tags->flush;
+     print "\n\n";
+     print $css->flush;
+
+     # Output:
+     # TODO
+
+DEPENDENCIES
+    Class::Utils, Error::Pure, Tags::HTML, List::Util, Scalar::Util.
+
+REPOSITORY
+    <https://github.com/michal-josef-spacek/Tags-HTML-Navigation>
+
+AUTHOR
+    Michal Josef Špaček <mailto:skim@cpan.org>
+
+    <http://skim.cz>
+
+LICENSE AND COPYRIGHT
+    © Michal Josef Špaček 2022
+
+    BSD 2-Clause License
+
+VERSION
+    0.01
+

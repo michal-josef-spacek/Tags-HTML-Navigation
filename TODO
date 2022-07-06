@@ -1,6 +1,5 @@
 TODO
 ====
-1. doc
 2. Test for bad object in navigation_items
 4. Add CSS
 * Implementation
@@ -14,4 +13,7 @@ Applied
 OK [20220706] skim
 
 5. Tests for process_css().
+OK [20220706] skim
+
+1. doc
 OK [20220706] skim
